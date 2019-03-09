@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd ">
+
+	
+	<bean id="addr" class="com.bikash.bean.Address">
+		<property name="city" value="Pune"></property>
+		<property name="state" value="Maharashtra"></property>
+		<property name="zipcode" value="577006"></property>
+	</bean>
+	
+	<bean id="emp1" class="com.bikash.bean.Employee" init-method="setInit" destroy-method="setDestroy">
+		<property name="empid" value="2"></property>
+		<property name="ename" value="Bilash"></property>
+		<!-- DI through setter -->
+		<property name="address" ref="addr"></property>
+		
+		<!-- DI through constructor --> 
+		<!-- <constructor-arg ref="addr"></constructor-arg>  -->
+	</bean>
+
+	
+</beans>
